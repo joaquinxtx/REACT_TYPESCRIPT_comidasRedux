@@ -1,7 +1,18 @@
 import React from 'react'
+import { Item } from './Item'
 
 export const ItemList = () => {
   return (
-    <div>ItemList</div>
+    <div className='flex  justify-center flex-wrap'>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+      <Item/>
+    </div>
   )
 }

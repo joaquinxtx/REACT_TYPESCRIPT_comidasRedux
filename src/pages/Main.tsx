@@ -1,7 +1,10 @@
 import React from 'react'
+import { ItemList } from '../components'
 
 export const Main = () => {
   return (
-    <div>Main</div>
+    <div>
+      <ItemList/>
+    </div>
   )
 }
