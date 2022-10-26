@@ -9,12 +9,11 @@ export const Navigation = () => {
     <>
     <NavBar/>
       <Routes>
-        <Route path="/detail/" element={<Detail />} />
-        <Route path="/main" element={<Main />} />
-
-        <Route path="/*" element={<Navigate to="main" replace />} />
+        <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/category/:id" element={<Main />} />
+        <Route path="/*" element={<Navigate to="/category/todos" />} />
       </Routes>
     <Footer/>
     </>
-  );
+  );  
 };
