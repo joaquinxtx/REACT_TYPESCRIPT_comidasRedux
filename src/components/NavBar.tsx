@@ -9,11 +9,15 @@ import noodles from "../assets/noodles.png";
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
+  
 
   const openDropDown = () => {
     setOpen(!open);
   };
-
+  const openDropDownOn = () => {
+    setOpen(false);
+  };
+  
   const navs = [
     { nameLink: "All", path: "category/todos", img: meal },
     { nameLink: "Side", path: "category/Side", img: french },
@@ -35,6 +39,7 @@ export const NavBar = () => {
         >
           <button
             onClick={openDropDown }
+            onBlur={openDropDownOn}
             
             className="w-40 px-4 py-2 text-sm text-gray-600 hover:text-gray-700 hover:bg-gray-50 rounded-l-md"
           >
@@ -44,7 +49,6 @@ export const NavBar = () => {
           <div className="relative">
             <button
               type="button"
-              onBlur={openDropDown}
               onClick={openDropDown}
               
 
