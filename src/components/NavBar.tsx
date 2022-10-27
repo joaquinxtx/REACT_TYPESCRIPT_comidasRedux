@@ -44,8 +44,9 @@ export const NavBar = () => {
           <div className="relative">
             <button
               type="button"
-              onClick={openDropDown}
               onBlur={openDropDown}
+              onClick={openDropDown}
+              
 
               className="inline-flex items-center justify-center h-full px-2 text-gray-600 border-l border-gray-100 hover:text-gray-700 rounded-r-md hover:bg-gray-50"
             >
@@ -68,17 +69,17 @@ export const NavBar = () => {
             {open ? (
               <div className="fixed rounded-md left-6 z-10 w-48 mt-2 origin-top-right bg-white  border-gray-100  shadow-lg">
                 <div >
-                  <ul>
+                  <ul >
                     {navs.map((e) => (
                       <Link 
                         to={e.path}
                         className=" flex  justify-between h-10 hover:bg-amber-200 items-center"
-                        
+                        onClick={openDropDown}
                         >
                         <li
                           key={e.nameLink}
                           className="block p-2 text-xs font-semibold dark:hover:bg-gray-600 dark:hover:text-white "
-                          onClick={openDropDown}
+                          
                         >
                           {e.nameLink}
                         </li>
