@@ -1,19 +1,18 @@
-import { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchData } from "../redux/actions/buscarComidas";
-import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useSelector} from "react-redux";
+
 import { Item } from "./Item";
-import { CardSearch } from './CardSearch';
+import store from "../redux/store";
+
+type RootState = ReturnType<typeof store.getState>;
 
 export const Search = () => {
-  const dispatch: any = useDispatch();
-
   const [nameFood, setNameFood] = useState("");
   const onChangeComida = (event: any) => {
     setNameFood(event.target.value);
   };
 
-  const dataReducer = useSelector((state) => state.dataReducer);
+  const dataReducer = useSelector((state: RootState) => state.dataReducer);
   const meals = dataReducer.data.meals;
   const filtro = meals?.filter(
     (food: any) => food.strMeal.toLowerCase() === nameFood
@@ -38,22 +37,16 @@ export const Search = () => {
       </div>
 
       <div className="flex mt-5 justify-center flex-wrap ">
-
-        {      
-            filtro?.map((item: any) => {
-                return (
-                  <Item
-                    key={item.idMeal}
-                    img={item.strMealThumb}
-                    name={item.strMeal}
-                    id={item.idMeal}
-                  />
-                );
-              })
-           
-            }
-            
-        
+        {filtro?.map((item: any) => {
+          return (
+            <Item
+              key={item.idMeal}
+              img={item.strMealThumb}
+              name={item.strMeal}
+              id={item.idMeal}
+            />
+          );
+        })}
       </div>
     </>
   );

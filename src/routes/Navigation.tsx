@@ -1,8 +1,8 @@
-import React from "react";
+
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Detail, Main } from "../pages";
-import { NavBar ,Footer } from '../components';
-import { Search } from '../components/Search';
+import { NavBar ,Footer,Search  } from '../components';
+
 
 
 export const Navigation = () => {

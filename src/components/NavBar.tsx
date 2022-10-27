@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const NavBar = () => {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,7 @@ export const NavBar = () => {
     { nameLink: "Pork🥩", path: "category/Pork" },
   ];
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark: bg-gray-800">
+    <nav className="bg-white  border-gray-200 px-2 sm:px-4 py-2.5 rounded dark: bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <div className="inline-flex bg-white border rounded-md">
           <button
@@ -69,15 +69,10 @@ export const NavBar = () => {
             ) : null}
           </div>
         </div>
-        <div className='flex'>
-          
+        <div className="flex">
           <button className="text-white ml-2 bg-emerald-600 p-1.5 rounded">
-            <Link to='/search'>
-            
-              Search Food
-            </Link>
+            <Link to="/search">Search Food</Link>
           </button>
-
         </div>
       </div>
     </nav>
