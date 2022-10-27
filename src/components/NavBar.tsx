@@ -70,8 +70,13 @@ export const NavBar = () => {
           </div>
         </div>
         <div className='flex'>
-          <input type="text" />
-          <button className="text-white ml-2 bg-emerald-600 p-0.5 rounded">Buscar</button>
+          
+          <button className="text-white ml-2 bg-emerald-600 p-1.5 rounded">
+            <Link to='/search'>
+            
+              Search Food
+            </Link>
+          </button>
 
         </div>
       </div>

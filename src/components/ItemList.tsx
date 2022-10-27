@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchData } from "../redux/actions/buscarComidas";
 import { useParams } from "react-router-dom";
+import { Loading } from "./loading/Loading";
 
 export const ItemList = () => {
   const { id } = useParams();
@@ -11,7 +12,7 @@ export const ItemList = () => {
   const dataReducer = useSelector((state) => state.dataReducer);
   const meals = dataReducer.data.meals;
 
-  const filtro = meals?.filter((tem: any) => tem.strCategory === id);
+  const filtro = meals?.filter((food: any) => food.strCategory === id);
 
   useEffect(() => {
     dispatch(fetchData());
@@ -19,17 +20,17 @@ export const ItemList = () => {
 
   return (
     <div className="flex  justify-center flex-wrap">
-      {dataReducer.isFetching && <span>Buscandoooo</span>}
+      {dataReducer.isFetching && <Loading/>}
 
       {id === "todos"
-        ? meals?.map((it: any) => {
+        ? meals?.map((item: any) => {
             return (
-              <Item key={it.idMeal} img={it.strMealThumb} name={it.strMeal} id={it.idMeal} />
+              <Item key={item.idMeal} img={item.strMealThumb} name={item.strMeal} id={item.idMeal} />
             );
           })
-        : filtro?.map((it: any) => {
+        : filtro?.map((item: any) => {
             return (
-              <Item key={it.idMeal} img={it.strMealThumb} name={it.strMeal} id={it.idMeal} />
+              <Item key={item.idMeal} img={item.strMealThumb} name={item.strMeal} id={item.idMeal} />
             );
           })}
     </div>
