@@ -1,69 +1,79 @@
 import { Link } from "react-router-dom";
-
-
-
-
-
+import { useState, useEffect } from "react";
 
 export const NavBar = () => {
+  const [open, setOpen] = useState(false);
 
+  const openDropDown = () => {
+    setOpen(!open);
+  };
 
+  const navs = [
+    { nameLink: "All 🍟", path: "category/todos" },
+    { nameLink: "Side 🥟", path: "category/Side" },
+    { nameLink: "Vegetarian🥗", path: "category/Vegetarian" },
+    { nameLink: "Beef🍖", path: "category/Beef" },
+    { nameLink: "Pasta🍝", path: "category/Pasta" },
+    { nameLink: "Pork🥩", path: "category/Pork" },
+  ];
   return (
-    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900 bg-gray-900">
+    <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark: bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <ul className="flex  p-1  bg-gray-50 rounded-lg border border-gray-100 md:flex-colrow md:space-x-10 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <li>
-            <Link
-              to='category/todos'
-              className="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
-              aria-current="page"
+        <div className="inline-flex bg-white border rounded-md">
+          <button
+            onClick={openDropDown}
+            className="px-4 py-2 text-sm text-gray-600 hover:text-gray-700 hover:bg-gray-50 rounded-l-md"
+          >
+            Category
+          </button>
+
+          <div className="relative">
+            <button
+              type="button"
+              onClick={openDropDown}
+              className="inline-flex items-center justify-center h-full px-2 text-gray-600 border-l border-gray-100 hover:text-gray-700 rounded-r-md hover:bg-gray-50"
             >
-              todos 🍟
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='category/Side'
-              className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Side 🥟
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='category/Vegetarian'
-              className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Vegetarian🥗
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='category/Beef'
-              className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Beef🍖
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='category/Pasta'
-              className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Pasta🍝
-            </Link>
-          </li>
-          <li>
-            <Link
-              to='category/Pork'
-              className="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Pork🥩
-            </Link>
-            
-          </li>
-        </ul>
-        
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19 9l-7 7-7-7"
+                />
+              </svg>
+            </button>
+
+            {open ? (
+              <div className="absolute z-10 w-56 mt-4 origin-top-right bg-white border border-gray-100 rounded-md shadow-lg">
+                <div className="p-2">
+                  <ul>
+                    {navs.map((e) => (
+                      <li key={e.nameLink}>
+                        <Link
+                          to={e.path}
+                          className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        >
+                          {e.nameLink}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ) : null}
+          </div>
+        </div>
+        <div className='flex'>
+          <input type="text" />
+          <button className="text-white ml-2 bg-emerald-600 p-0.5 rounded">Buscar</button>
+
+        </div>
       </div>
     </nav>
   );
