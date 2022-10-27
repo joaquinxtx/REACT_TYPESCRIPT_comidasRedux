@@ -3,15 +3,16 @@
 import { useSelector } from 'react-redux';
 import {  useParams } from 'react-router-dom';
 import { DetailComponents } from "../components/DetailComponents";
+import store from '../redux/store';
 
-
+type RootState = ReturnType<typeof store.getState>;
 
 export const Detail = () => {
   const {detailId} =useParams()
 
  
   
-  const dataReducer = useSelector((state) => state.dataReducer);
+  const dataReducer = useSelector((state:RootState) => state.dataReducer);
   const meals = dataReducer.data.meals;
   
   const filtro = meals?.filter((tem: any) => tem.idMeal === detailId) 

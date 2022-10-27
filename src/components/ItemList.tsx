@@ -4,12 +4,13 @@ import { useEffect } from "react";
 import { fetchData } from "../redux/actions/buscarComidas";
 import { useParams } from "react-router-dom";
 import { Loading } from "./loading/Loading";
-
+import store from '../redux/store';
+type RootState = ReturnType<typeof store.getState>;
 export const ItemList = () => {
   const { id } = useParams();
 
   const dispatch: any = useDispatch();
-  const dataReducer = useSelector((state) => state.dataReducer);
+  const dataReducer = useSelector((state:RootState) => state.dataReducer);
   const meals = dataReducer.data.meals;
 
   const filtro = meals?.filter((food: any) => food.strCategory === id);
