@@ -73,12 +73,12 @@ export const NavBar = () => {
                       <Link 
                         to={e.path}
                         className=" flex  justify-between h-10 hover:bg-amber-200 items-center"
-                        onClick={openDropDown}
                         
-                      >
+                        >
                         <li
                           key={e.nameLink}
                           className="block p-2 text-xs font-semibold dark:hover:bg-gray-600 dark:hover:text-white "
+                          onClick={openDropDown}
                         >
                           {e.nameLink}
                         </li>
