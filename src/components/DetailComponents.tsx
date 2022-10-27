@@ -8,7 +8,8 @@ interface detail {
 
 export const DetailComponents = ({ jpg, name, intruccion }: detail) => {
   return (
-    <div className="flex mb-20 mb-28 flex-col m-auto mt-20 items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <div className="pt-36">
+    <div className="flex mb-20 mb-28 flex-col m-auto items-center bg-white rounded-lg border shadow-md md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img
         src={jpg}
         alt={name}
@@ -32,6 +33,8 @@ export const DetailComponents = ({ jpg, name, intruccion }: detail) => {
           </button>
         </Link>
       </div>
+    </div>
+
     </div>
   );
 };

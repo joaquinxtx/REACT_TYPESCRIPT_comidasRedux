@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 
 export const Item = ({img,name,id}:ItemProp) => {
   return (
-    <div className="card w-64 m-10 border-2 border-slate-300 rounded-md">
+    <div className="card w-64 mt-28 m-10 border-2 border-slate-300 rounded-md">
       <img
         src={img}
         alt={name}

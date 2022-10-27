@@ -20,7 +20,7 @@ export const ItemList = () => {
   }, [id]);
 
   return (
-    <div className="flex  justify-center flex-wrap mb-28 ">
+    <div className="flex  justify-center flex-wrap mb-28  ">
       {dataReducer.isFetching && <Loading/>}
 
       {id === "todos"

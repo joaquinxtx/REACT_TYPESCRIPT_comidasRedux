@@ -21,15 +21,22 @@ export const Detail = () => {
 
   return (
     <>
+    
+
       { filtro?.map((it: any) => {
             return (
-              <DetailComponents
-              key={it.idMeal}
-              jpg={it.strMealThumb}
-              intruccion={it.strInstructions}
-              name={it.strMeal}/>         
+              
+
+                <DetailComponents
+                
+                key={it.idMeal}
+                jpg={it.strMealThumb}
+                intruccion={it.strInstructions}
+                name={it.strMeal}/>         
+             
             );
           })}
+    
       
         
     </>
